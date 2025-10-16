@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nutrition Tracker - Login</title>
+  <link rel="stylesheet" href="LoginPage.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h1>Nutrition Tracker</h1>
+    <p id="streak-display">Daily Login Streak: 🔥 0 days</p>
+
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Enter your name" />
+      <button type="submit">Start</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const streakDisplay = document.getElementById("streak-display");
+      const lastLogin = localStorage.getItem("lastLoginDate");
+      const today = new Date().toDateString();
+      let streak = 0;
+
+      if (lastLogin === today) {
+        streak = parseInt(localStorage.getItem("streak")) || 0;
+      } else {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        if (lastLogin === yesterday.toDateString()) {
+          streak = (parseInt(localStorage.getItem("streak")) || 0) + 1;
+        } else {
+          streak = 1;
+        }
+
+        localStorage.setItem("streak", streak);
+        localStorage.setItem("lastLoginDate", today);
+      }
+
+      streakDisplay.textContent = `Daily Login Streak: 🔥 ${streak} days`;
+
+      document.getElementById("login-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = document.getElementById("username").value.trim();
+        if (username) {
+          localStorage.setItem("username", username);
+          window.location.href = "dashboard.html"; // redirect page
+        } else {
+          alert("Please enter your name!");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

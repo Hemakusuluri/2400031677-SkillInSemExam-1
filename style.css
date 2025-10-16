@@ -1,0 +1,86 @@
+/* ===== Common Body & Background ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #FFEFD5; /* Light Cream/Peach instead of blue */
+    color: #333;
+}
+
+/* ===== Header ===== */
+header {
+    background: #8B008B; /* Deep Purple */
+    color: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 0 0 12px 12px;
+    margin-bottom: 20px;
+}
+
+/* ===== Navigation ===== */
+nav {
+    background: #8B008B;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px;
+    display: block;
+}
+nav ul li a:hover {
+    background: #FF8C00; /* Orange hover */
+    border-radius: 4px;
+}
+
+/* ===== Sections / Boxes ===== */
+section, .login-container {
+    padding: 25px;
+    margin: 20px auto;
+    background: #8B008B; /* Purple box */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    color: white;
+    max-width: 900px;
+}
+
+/* Section headings */
+section h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* ===== Buttons ===== */
+.options button {
+    background: #FF8C00; /* Orange */
+    color: white;
+}
+.options button:hover {
+    background: #228B22; /* Green hover */
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #8B008B;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 12px 12px 0 0;
+}
+
+/* ===== Login Page ===== */
+.login-container button {
+    background: #FF8C00;
+    color: white;
+}
+.login-container button:hover {
+    background: #228B22;
+}
+
+.login-container input {
+    border: 2px solid #FF8C00;
+}
+
+.error {
+    color: #FFD700; /* Gold */
+}

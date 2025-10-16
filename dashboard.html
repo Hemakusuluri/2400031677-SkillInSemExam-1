@@ -1,0 +1,37 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { FaAppleAlt, FaHeartbeat, FaClipboardList, FaRunning } from "react-icons/fa";
+import "./Dashboard.css";
+
+function Dashboard() {
+  const navigate = useNavigate();
+  const username = localStorage.getItem("username");
+
+  return (
+    <div className="dashboard-container">
+      <h2>Welcome, {username}! 🌿</h2>
+      <p>Your Goal Progress: 75%</p>
+
+      <div className="goal-circle">
+        <div className="progress">75%</div>
+      </div>
+
+      <div className="card-grid">
+        <div className="card" onClick={() => navigate("/diet")}>
+          <FaAppleAlt size={40} /> <p>Diet</p>
+        </div>
+        <div className="card">
+          <FaHeartbeat size={40} /> <p>Heart</p>
+        </div>
+        <div className="card">
+          <FaClipboardList size={40} /> <p>Plan</p>
+        </div>
+        <div className="card" onClick={() => navigate("/exercise")}>
+          <FaRunning size={40} /> <p>Exercise</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;
