@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .box { width: 300px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; text-align: center; }
+    input { width: 100%; padding: 10px; margin-bottom: 10px; }
+    button { width: 100%; padding: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Enter Email">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (email && password) {
+        // save auth status
+        localStorage.setItem("loggedIn", "true");
+        // redirect to dashboard
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Please enter email and password");
+      }
+    }
+
+    // if already logged in, go to dashboard
+    if (localStorage.getItem("loggedIn") === "true") {
+      window.location.href = "dashboard.html";
+    }
+  </script>
+
+</body>
+</html>
